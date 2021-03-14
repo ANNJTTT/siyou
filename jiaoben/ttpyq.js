@@ -10,7 +10,7 @@
 // 匹配里若需用到正则的反斜杠语句像\d+、\w+时请用双反斜杆\\d+、\\w+
 
 
-  re('is_vip":0@vip_expire":"0@remain_download":"', 'is_vip":1@vip_expire":"1827249069@remain_download":"88')
+  re('is_vip":0@vip_expire":"0@remain_download":"', 'is_vip":1@vip_expire":"4834460678@remain_download":"88')
 
 
 
