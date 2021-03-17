@@ -336,7 +336,9 @@ function buyJoyLogic() {
     if (zeroNum === 0) {
       console.log('格子满了')
     } else  {
+		$.log(`是否有执行到这里`)
       await buyJoy(finMinJoyLevel());
+	  
     } 
     resolve()
   })
