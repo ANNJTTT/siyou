@@ -1,9 +1,10 @@
-/*  1.10 
+/*  1.11 
 crazy joy
 挂机领金币/宝箱专用
 活动入口：京东APP我的-更多工具-疯狂的JOY
 ⚠️建议云端使用。手机端不建议使用(会一直跑下去，永不停止)
 10 7 * * * https://gitee.com/lxk0301/jd_scripts/raw/master/jd_crazy_joy_coin.js
+
  */
 
 
@@ -171,7 +172,7 @@ if ($.isNode()) {
         $.isLogin = true;
         $.nickName = '';
         await TotalBean();
-        console.log(`\n开始【京东账号${$.index}】`);
+        console.log(`\n开始【京东账号${$.index}】\n`);
         if (!$.isLogin) {
          $.log(`\n京东账号${$.index} ${$.nickName || $.UserName}\ncookie已过期,请重新登录获取\n`)
           continue
@@ -197,7 +198,7 @@ async function jdCrazyJoy() {
   await getJoyList()
   await $.wait(1000)
   if ($.joyIds && $.joyIds.length > 0) {
-    $.log('当前JOY分布情况')
+
     $.log(`\n${$.joyIds[0]} ${$.joyIds[1]} ${$.joyIds[2]} ${$.joyIds[3]}`)
     $.log(`${$.joyIds[4]} ${$.joyIds[5]} ${$.joyIds[6]} ${$.joyIds[7]}`)
     $.log(`${$.joyIds[8]} ${$.joyIds[9]} ${$.joyIds[10]} ${$.joyIds[11]}\n`)
@@ -243,7 +244,7 @@ async function jdCrazyJoy() {
       await getJoyList()
       await $.wait(1000)
       if ($.joyIds && $.joyIds.length > 0) {
-        $.log('合并后的JOY分布情况')
+
         $.log(`\n${$.joyIds[0]} ${$.joyIds[1]} ${$.joyIds[2]} ${$.joyIds[3]}`)
         $.log(`${$.joyIds[4]} ${$.joyIds[5]} ${$.joyIds[6]} ${$.joyIds[7]}`)
         $.log(`${$.joyIds[8]} ${$.joyIds[9]} ${$.joyIds[10]} ${$.joyIds[11]}\n`)
@@ -258,7 +259,7 @@ async function jdCrazyJoy() {
         await getJoyList()
         await $.wait(1000)
         if ($.joyIds && $.joyIds.length > 0) {
-          $.log('合并后的JOY分布情况')
+
           $.log(`\n${$.joyIds[0]} ${$.joyIds[1]} ${$.joyIds[2]} ${$.joyIds[3]}`)
           $.log(`${$.joyIds[4]} ${$.joyIds[5]} ${$.joyIds[6]} ${$.joyIds[7]}`)
           $.log(`${$.joyIds[8]} ${$.joyIds[9]} ${$.joyIds[10]} ${$.joyIds[11]}\n`)
@@ -288,6 +289,7 @@ async function jdCrazyJoy() {
   }
   await getUserBean()
   await $.wait(5000)
+  console.log(`当前信息：${$.bean} 京豆，${$.coin} 金币`)
 }
 //查询格子里面是否还有空格
 function checkHasFullOccupied() {
@@ -576,7 +578,7 @@ function getUserBean() {
             if (data.success && data.data && data.data.totalBeans)
               $.bean = data.data.totalBeans
             else
-
+              console.log(`京豆信息获取信息失败`)
           }
         }
       } catch (e) {
@@ -603,7 +605,7 @@ function getCoin() {
             }
             if (data.data && data.data.totalCoinAmount) {
               $.coin = data.data.totalCoinAmount;
-
+              $.log(`当前金币:${$.coin}\n`)
             } else {
               $.coin = `获取当前金币数量失败`
             }
@@ -638,10 +640,10 @@ function getCoinForInterval(taskCookie) {
             // const userName = decodeURIComponent(taskCookie.match(/pt_pin=(.+?);/) && taskCookie.match(/pt_pin=(.+?);/)[1])
             // data = JSON.parse(data);
             // if (data.data && data.data.tryMoneyJoyBeans) {
-            //   console.log(`【京东账号 ${userName}】分红狗生效中，预计获得 ${data.data.tryMoneyJoyBeans} 京豆奖励`)
+
             // }
             // if (data.data) {
-            //   $.log(`【京东账号 ${userName}】此次在线收益：获得 ${data.data['coins']} 金币`)
+
             // }
           }
         }
@@ -728,7 +730,7 @@ function getGrowState() {
                 }
               }
             } else {
-
+              $.log(`幸运盒子奖励领取失败，错误信息：${data.message || JSON.stringify(data)}`)
             }
           }
         }
