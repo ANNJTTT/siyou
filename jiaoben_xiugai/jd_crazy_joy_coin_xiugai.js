@@ -1,4 +1,4 @@
-/*  1.01
+/*  1.02 先合成再购买
 crazy joy
 挂机领金币/宝箱专用
 活动入口：京东APP我的-更多工具-疯狂的JOY
@@ -223,25 +223,7 @@ async function jdCrazyJoy() {
   await getCoin()
   await $.wait(1000)
 
-  for (let i = 0; i < $.joyIds.length; ++i) {
-    if (!$.canBuy) {
-      $.log(`金币不足，跳过购买`)
-      break
-    }
-    if ($.joyIds[i] === 0) {
-		/* $.log(`是否有执行到这里3`) */
-		if (finMinJoyLevel()===31){
-			await buyJoy(1)
-		} else {
-			await buyJoy(finMinJoyLevel())
-		}
 
-      await $.wait(1000)
-      await getJoyList()
-      await $.wait(1000)
-      await getCoin();
-    }
-  }
 
   let obj = {};
   $.joyIds.map((vo, idx) => {
@@ -283,6 +265,26 @@ async function jdCrazyJoy() {
           $.log(`${$.joyIds[8]} ${$.joyIds[9]} ${$.joyIds[10]} ${$.joyIds[11]}\n`)
         }
       }
+    }
+  }
+  
+    for (let i = 0; i < $.joyIds.length; ++i) {
+    if (!$.canBuy) {
+      $.log(`金币不足，跳过购买`)
+      break
+    }
+    if ($.joyIds[i] === 0) {
+		/* $.log(`是否有执行到这里3`) */
+		if (finMinJoyLevel()===31){
+			await buyJoy(1)
+		} else {
+			await buyJoy(finMinJoyLevel())
+		}
+
+      await $.wait(1000)
+      await getJoyList()
+      await $.wait(1000)
+      await getCoin();
     }
   }
   await getUserBean()
