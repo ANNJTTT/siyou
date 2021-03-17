@@ -1,4 +1,4 @@
-/* 自定义1.0  从1级开始合成
+/*  1.01
 crazy joy
 挂机领金币/宝箱专用
 活动入口：京东APP我的-更多工具-疯狂的JOY
@@ -229,7 +229,7 @@ async function jdCrazyJoy() {
       break
     }
     if ($.joyIds[i] === 0) {
-		$.log(`是否有执行到这里3`)
+		/* $.log(`是否有执行到这里3`) */
 		if (finMinJoyLevel()===31){
 			await buyJoy(1)
 		} else {
@@ -342,7 +342,7 @@ function buyJoyLogic() {
     if (zeroNum === 0) {
       console.log('格子满了')
     } else  {
-		$.log(`是否有执行到这里1`)
+		/* $.log(`是否有执行到这里1`) */
       await buyJoy(finMinJoyLevel());
 	  
     } 
@@ -406,7 +406,7 @@ function getJoyShop() {
           if (data.success && data.data && data.data.shop) {
             const shop = data.data.shop.filter(vo => vo.status === 1) || [];
             $.joyPrices = shop;
-			$.log(`是否有执行到这里2`)
+			/* $.log(`是否有执行到这里2`) */
             $.buyJoyLevel = shop.length ? shop[shop.length - 1]['joyId'] : 1;//可购买的最大等级
             if ($.isNode() && process.env.BUY_JOY_LEVEL) {
               $.log(`当前可购买的最高JOY等级为${$.buyJoyLevel}级\n`)
