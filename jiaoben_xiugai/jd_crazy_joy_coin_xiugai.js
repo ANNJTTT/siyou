@@ -1,4 +1,4 @@
-/*
+/* 自定义1.0  从1级开始合成
 crazy joy
 挂机领金币/宝箱专用
 活动入口：京东APP我的-更多工具-疯狂的JOY
@@ -268,7 +268,7 @@ async function jdCrazyJoy() {
         $.log(`${$.joyIds[8]} ${$.joyIds[9]} ${$.joyIds[10]} ${$.joyIds[11]}\n`)
       }
     }
-    /* if (idx === '34' && vo.length >= 8) {
+    if (idx === '34' && vo.length >= 8) {
       if ($.coin >= 6000000000000000) {
         //当存在8个34级JOY，并且剩余金币可为后面继续合成两只新的34级JOY(按全部用30级JOY合成一只34级JOY计算需:1.66T * 2 * 2 * 2 * 2 = 26.56T = 2.6Q)时,则此条件下合并两个34级JOY
         $.log(`开始合并两只${idx}级joy\n`)
@@ -283,7 +283,7 @@ async function jdCrazyJoy() {
           $.log(`${$.joyIds[8]} ${$.joyIds[9]} ${$.joyIds[10]} ${$.joyIds[11]}\n`)
         }
       }
-    } */
+    }
   }
   await getUserBean()
   await $.wait(5000)
