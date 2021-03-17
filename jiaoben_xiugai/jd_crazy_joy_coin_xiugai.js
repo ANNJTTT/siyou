@@ -229,6 +229,7 @@ async function jdCrazyJoy() {
       break
     }
     if ($.joyIds[i] === 0) {
+		$.log(`是否有执行到这里3`)
       await buyJoy($.buyJoyLevel)
       await $.wait(1000)
       await getJoyList()
@@ -336,7 +337,7 @@ function buyJoyLogic() {
     if (zeroNum === 0) {
       console.log('格子满了')
     } else  {
-		$.log(`是否有执行到这里`)
+		$.log(`是否有执行到这里1`)
       await buyJoy(finMinJoyLevel());
 	  
     } 
@@ -400,6 +401,7 @@ function getJoyShop() {
           if (data.success && data.data && data.data.shop) {
             const shop = data.data.shop.filter(vo => vo.status === 1) || [];
             $.joyPrices = shop;
+			$.log(`是否有执行到这里2`)
             $.buyJoyLevel = shop.length ? shop[shop.length - 1]['joyId'] : 1;//可购买的最大等级
             if ($.isNode() && process.env.BUY_JOY_LEVEL) {
               $.log(`当前可购买的最高JOY等级为${$.buyJoyLevel}级\n`)
