@@ -1,4 +1,4 @@
-/*  1.11 
+/*  1.12 
 crazy joy
 挂机领金币/宝箱专用
 活动入口：京东APP我的-更多工具-疯狂的JOY
@@ -198,7 +198,7 @@ async function jdCrazyJoy() {
   await getJoyList()
   await $.wait(1000)
   if ($.joyIds && $.joyIds.length > 0) {
-    $.log('当前JOY分布情况')
+//    $.log('当前JOY分布情况')
     $.log(`\n${$.joyIds[0]} ${$.joyIds[1]} ${$.joyIds[2]} ${$.joyIds[3]}`)
     $.log(`${$.joyIds[4]} ${$.joyIds[5]} ${$.joyIds[6]} ${$.joyIds[7]}`)
     $.log(`${$.joyIds[8]} ${$.joyIds[9]} ${$.joyIds[10]} ${$.joyIds[11]}\n`)
@@ -238,7 +238,7 @@ async function jdCrazyJoy() {
   for (let idx in obj) {
     const vo = obj[idx]
     if (idx < 34 && vo.length >= 2) {
-      $.log(`开始合并两只${idx}级joy\n`)
+      $.log(`合并两只${idx}级joy\n`)
       await mergeJoy(vo[0], vo[1])
       await $.wait(3000)
       await getJoyList()
@@ -253,7 +253,7 @@ async function jdCrazyJoy() {
     if (idx === '34' && vo.length >= 8) {
       if ($.coin >= 6000000000000000) {
         //当存在8个34级JOY，并且剩余金币可为后面继续合成两只新的34级JOY(按全部用30级JOY合成一只34级JOY计算需:1.66T * 2 * 2 * 2 * 2 = 26.56T = 2.6Q)时,则此条件下合并两个34级JOY
-        $.log(`开始合并两只${idx}级joy\n`)
+        $.log(`合并两只${idx}级joy\n`)
         await mergeJoy(vo[0], vo[1])
         await $.wait(3000)
         await getJoyList()
@@ -411,7 +411,7 @@ function getJoyShop() {
 			/* $.log(`是否有执行到这里2`) */
             $.buyJoyLevel = shop.length ? shop[shop.length - 1]['joyId'] : 1;//可购买的最大等级
             if ($.isNode() && process.env.BUY_JOY_LEVEL) {
-              $.log(`当前可购买的最高JOY等级为${$.buyJoyLevel}级\n`)
+          //    $.log(`当前可购买的最高JOY等级为${$.buyJoyLevel}级\n`)
               $.buyJoyLevel = (process.env.BUY_JOY_LEVEL * 1) > $.buyJoyLevel ? $.buyJoyLevel : process.env.BUY_JOY_LEVEL * 1;
               $.cost = shop[$.buyJoyLevel - 1]['coins']
             } else {
@@ -457,10 +457,10 @@ function mergeJoy(x, y) {
                       return '未知JOY'
                   }
                 }
-                console.log(`合并成功，获得${level(data.data.newJoyId)}级Joy`)
+   //             console.log(`合并成功，获得${level(data.data.newJoyId)}级Joy`)
                 if (data.data.newJoyId === 1007 && $.isNode()) await notify.sendNotify($.name, `京东账号${$.index} ${$.nickName}\n合并成功，获得${level(data.data.newJoyId)}级Joy`)
               } else {
-                console.log(`合并成功，获得${data.data.newJoyId}级Joy`)
+   //             console.log(`合并成功，获得${data.data.newJoyId}级Joy`)
               }
             } else
               console.log(`合并失败，错误`)
@@ -553,7 +553,7 @@ function hourBenefit() {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.success)
-   //           console.log(`金币补给领取成功，获得${data.data.coins}金币`)
+             console.log(`金币补给领取成功，获得${data.data.coins}金币`)
           }
         }
       } catch (e) {
@@ -578,7 +578,7 @@ function getUserBean() {
             if (data.success && data.data && data.data.totalBeans)
               $.bean = data.data.totalBeans
             else
-  //            console.log(`京豆信息获取信息失败`)
+             console.log(`京豆信息获取信息失败`)
           }
         }
       } catch (e) {
