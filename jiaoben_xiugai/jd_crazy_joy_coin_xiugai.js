@@ -230,7 +230,7 @@ async function jdCrazyJoy() {
     }
     if ($.joyIds[i] === 0) {
 		$.log(`是否有执行到这里3`)
-      await buyJoy($.buyJoyLevel)
+      await buyJoy(finMinJoyLevel())
       await $.wait(1000)
       await getJoyList()
       await $.wait(1000)
