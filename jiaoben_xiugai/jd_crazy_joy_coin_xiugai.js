@@ -223,7 +223,7 @@ async function jdCrazyJoy() {
   await getCoin()
   await $.wait(1000)
 
-/*   for (let i = 0; i < $.joyIds.length; ++i) {
+  for (let i = 0; i < $.joyIds.length; ++i) {
     if (!$.canBuy) {
       $.log(`金币不足，跳过购买`)
       break
@@ -235,7 +235,7 @@ async function jdCrazyJoy() {
       await $.wait(1000)
       await getCoin();
     }
-  } */
+  }
 
   let obj = {};
   $.joyIds.map((vo, idx) => {
@@ -247,7 +247,7 @@ async function jdCrazyJoy() {
       }
     }
   })
-/*   for (let idx in obj) {
+  for (let idx in obj) {
     const vo = obj[idx]
     if (idx < 34 && vo.length >= 2) {
       $.log(`开始合并两只${idx}级joy\n`)
@@ -262,7 +262,7 @@ async function jdCrazyJoy() {
         $.log(`${$.joyIds[8]} ${$.joyIds[9]} ${$.joyIds[10]} ${$.joyIds[11]}\n`)
       }
     }
-    if (idx === '34' && vo.length >= 8) {
+    /* if (idx === '34' && vo.length >= 8) {
       if ($.coin >= 6000000000000000) {
         //当存在8个34级JOY，并且剩余金币可为后面继续合成两只新的34级JOY(按全部用30级JOY合成一只34级JOY计算需:1.66T * 2 * 2 * 2 * 2 = 26.56T = 2.6Q)时,则此条件下合并两个34级JOY
         $.log(`开始合并两只${idx}级joy\n`)
@@ -277,8 +277,8 @@ async function jdCrazyJoy() {
           $.log(`${$.joyIds[8]} ${$.joyIds[9]} ${$.joyIds[10]} ${$.joyIds[11]}\n`)
         }
       }
-    }
-  } */
+    } */
+  }
   await getUserBean()
   await $.wait(5000)
   console.log(`当前信息：${$.bean} 京豆，${$.coin} 金币`)
