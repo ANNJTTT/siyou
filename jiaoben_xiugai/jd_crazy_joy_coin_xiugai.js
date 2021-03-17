@@ -1,4 +1,4 @@
-/*  1.12 
+/*  1.13 缩短延迟时间 
 crazy joy
 挂机领金币/宝箱专用
 活动入口：京东APP我的-更多工具-疯狂的JOY
@@ -240,14 +240,14 @@ async function jdCrazyJoy() {
     if (idx < 34 && vo.length >= 2) {
       $.log(`合并两只${idx}级joy\n`)
       await mergeJoy(vo[0], vo[1])
-      await $.wait(3000)
+      await $.wait(1000)
       await getJoyList()
       await $.wait(1000)
       if ($.joyIds && $.joyIds.length > 0) {
   //      $.log('合并后的JOY分布情况')
-        $.log(`\n${$.joyIds[0]} ${$.joyIds[1]} ${$.joyIds[2]} ${$.joyIds[3]}`)
-        $.log(`${$.joyIds[4]} ${$.joyIds[5]} ${$.joyIds[6]} ${$.joyIds[7]}`)
-        $.log(`${$.joyIds[8]} ${$.joyIds[9]} ${$.joyIds[10]} ${$.joyIds[11]}\n`)
+   //     $.log(`\n${$.joyIds[0]} ${$.joyIds[1]} ${$.joyIds[2]} ${$.joyIds[3]}`)
+    //    $.log(`${$.joyIds[4]} ${$.joyIds[5]} ${$.joyIds[6]} ${$.joyIds[7]}`)
+   //     $.log(`${$.joyIds[8]} ${$.joyIds[9]} ${$.joyIds[10]} ${$.joyIds[11]}\n`)
       }
     }
     if (idx === '34' && vo.length >= 8) {
@@ -255,7 +255,7 @@ async function jdCrazyJoy() {
         //当存在8个34级JOY，并且剩余金币可为后面继续合成两只新的34级JOY(按全部用30级JOY合成一只34级JOY计算需:1.66T * 2 * 2 * 2 * 2 = 26.56T = 2.6Q)时,则此条件下合并两个34级JOY
         $.log(`合并两只${idx}级joy\n`)
         await mergeJoy(vo[0], vo[1])
-        await $.wait(3000)
+        await $.wait(1000)
         await getJoyList()
         await $.wait(1000)
         if ($.joyIds && $.joyIds.length > 0) {
@@ -288,7 +288,7 @@ async function jdCrazyJoy() {
     }
   }
   await getUserBean()
-  await $.wait(5000)
+  await $.wait(2000)
  // console.log(`当前信息：${$.bean} 京豆，${$.coin} 金币`)
 }
 //查询格子里面是否还有空格
