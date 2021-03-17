@@ -247,7 +247,7 @@ async function jdCrazyJoy() {
       }
     }
   })
-  for (let idx in obj) {
+/*   for (let idx in obj) {
     const vo = obj[idx]
     if (idx < 34 && vo.length >= 2) {
       $.log(`开始合并两只${idx}级joy\n`)
@@ -278,7 +278,7 @@ async function jdCrazyJoy() {
         }
       }
     }
-  }
+  } */
   await getUserBean()
   await $.wait(5000)
   console.log(`当前信息：${$.bean} 京豆，${$.coin} 金币`)
