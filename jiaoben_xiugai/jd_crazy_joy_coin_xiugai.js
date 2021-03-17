@@ -1,4 +1,4 @@
-/*  1.10 恢复备份
+/*  1.11 
 crazy joy
 挂机领金币/宝箱专用
 活动入口：京东APP我的-更多工具-疯狂的JOY
@@ -172,7 +172,7 @@ if ($.isNode()) {
         $.isLogin = true;
         $.nickName = '';
         await TotalBean();
-        console.log(`\n开始【京东账号${$.index}】${$.nickName || $.UserName}\n`);
+        console.log(`\n开始【京东账号${$.index}】\n`);
         if (!$.isLogin) {
          $.log(`\n京东账号${$.index} ${$.nickName || $.UserName}\ncookie已过期,请重新登录获取\n`)
           continue
@@ -244,7 +244,7 @@ async function jdCrazyJoy() {
       await getJoyList()
       await $.wait(1000)
       if ($.joyIds && $.joyIds.length > 0) {
-        $.log('合并后的JOY分布情况')
+  //      $.log('合并后的JOY分布情况')
         $.log(`\n${$.joyIds[0]} ${$.joyIds[1]} ${$.joyIds[2]} ${$.joyIds[3]}`)
         $.log(`${$.joyIds[4]} ${$.joyIds[5]} ${$.joyIds[6]} ${$.joyIds[7]}`)
         $.log(`${$.joyIds[8]} ${$.joyIds[9]} ${$.joyIds[10]} ${$.joyIds[11]}\n`)
@@ -259,7 +259,7 @@ async function jdCrazyJoy() {
         await getJoyList()
         await $.wait(1000)
         if ($.joyIds && $.joyIds.length > 0) {
-          $.log('合并后的JOY分布情况')
+  //        $.log('合并后的JOY分布情况')
           $.log(`\n${$.joyIds[0]} ${$.joyIds[1]} ${$.joyIds[2]} ${$.joyIds[3]}`)
           $.log(`${$.joyIds[4]} ${$.joyIds[5]} ${$.joyIds[6]} ${$.joyIds[7]}`)
           $.log(`${$.joyIds[8]} ${$.joyIds[9]} ${$.joyIds[10]} ${$.joyIds[11]}\n`)
@@ -289,7 +289,7 @@ async function jdCrazyJoy() {
   }
   await getUserBean()
   await $.wait(5000)
-  console.log(`当前信息：${$.bean} 京豆，${$.coin} 金币`)
+ // console.log(`当前信息：${$.bean} 京豆，${$.coin} 金币`)
 }
 //查询格子里面是否还有空格
 function checkHasFullOccupied() {
@@ -493,7 +493,7 @@ function buyJoy(joyId) {
               $.canBuy = false
               return
             }
-            $.log(`购买${joyId}级joy成功，剩余金币【${data.data.totalCoins}】`)
+            $.log(`购买${joyId}级joy成功`)
             $.coin = data.data.totalCoins
           } else {
             console.log(data.message)
@@ -553,7 +553,7 @@ function hourBenefit() {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.success)
-              console.log(`金币补给领取成功，获得${data.data.coins}金币`)
+   //           console.log(`金币补给领取成功，获得${data.data.coins}金币`)
           }
         }
       } catch (e) {
@@ -578,7 +578,7 @@ function getUserBean() {
             if (data.success && data.data && data.data.totalBeans)
               $.bean = data.data.totalBeans
             else
-              console.log(`京豆信息获取信息失败`)
+  //            console.log(`京豆信息获取信息失败`)
           }
         }
       } catch (e) {
@@ -601,11 +601,11 @@ function getCoin() {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.data && data.data.tryMoneyJoyBeans) {
-              console.log(`分红狗生效中，预计获得 ${data.data.tryMoneyJoyBeans} 京豆奖励`)
+  //            console.log(`分红狗生效中，预计获得 ${data.data.tryMoneyJoyBeans} 京豆奖励`)
             }
             if (data.data && data.data.totalCoinAmount) {
               $.coin = data.data.totalCoinAmount;
-              $.log(`当前金币:${$.coin}\n`)
+   //           $.log(`当前金币:${$.coin}\n`)
             } else {
               $.coin = `获取当前金币数量失败`
             }
@@ -614,7 +614,7 @@ function getCoin() {
               await $.wait(1000)
             }
             if (data.data) {
-              $.log(`此次在线收益：获得 ${data.data['coins']} 金币`)
+   //           $.log(`此次在线收益：获得 ${data.data['coins']} 金币`)
             }
           }
         }
@@ -668,7 +668,7 @@ function openBox(eventType = 'LUCKY_BOX_DROP', boxId) {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data['success']) {
-              $.log(`点击幸运盒子成功，剩余观看视频次数：${data.data.advertViewTimes}, ${data.data.advertViewTimes > 0 ? '等待32秒' : '跳出'}`)
+   //           $.log(`点击幸运盒子成功，剩余观看视频次数：${data.data.advertViewTimes}, ${data.data.advertViewTimes > 0 ? '等待32秒' : '跳出'}`)
               if (data.data.advertViewTimes > 0) {
                 await $.wait(32000)
                 await rewardBox(eventType, boxId);
@@ -697,9 +697,9 @@ function rewardBox(eventType, boxId) {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data['success']) {
-              $.log(`幸运盒子奖励领取成功，获得：${data.data.beans}京豆，${data.data.coins}金币`)
+    //          $.log(`幸运盒子奖励领取成功，获得：${data.data.beans}京豆，${data.data.coins}金币`)
             } else {
-              $.log(`幸运盒子奖励领取失败，错误信息：${data.message || JSON.stringify(data)}`)
+     //         $.log(`幸运盒子奖励领取失败，错误信息：${data.message || JSON.stringify(data)}`)
             }
           }
         }
@@ -730,7 +730,7 @@ function getGrowState() {
                 }
               }
             } else {
-              $.log(`幸运盒子奖励领取失败，错误信息：${data.message || JSON.stringify(data)}`)
+  //            $.log(`幸运盒子奖励领取失败，错误信息：${data.message || JSON.stringify(data)}`)
             }
           }
         }
