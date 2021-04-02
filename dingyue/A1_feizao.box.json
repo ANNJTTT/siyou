@@ -7,7 +7,7 @@
             "apps": [{
             "id": "hlyy",
             "name": "葫芦音乐",
-            "keys": ["hlyyurl", "hlyyhd", "hlyyurl2", "hlyyhd2","hlyyurl3", "hlyyhd3","hlyyurl4", "hlyyhd4","hlyyurl5", "hlyyhd5","hlyyurl6", "hlyyhd6","hlyyurl7", "hlyyhd7","hlyyurl8", "hlyyhd8","hlyyurl9", "hlyyhd9","hlyyurl10", "hlyyhd10","hlyyurl11", "hlyyhd11", "hlyyurl12", "hlyyhd12","hlyyurl13", "hlyyhd13","hlyyurl14", "hlyyhd14","hlyyurl15", "hlyyhd15","hlyyurl16", "hlyyhd16","hlyyurl17", "hlyyhd17","hlyyurl18", "hlyyhd18","hlyyurl19", "hlyyhd19","hlyyurl20", "hlyyhd20"],
+            "keys": ["hlyyurl", "hlyyhd", "hlyyurl2", "hlyyhd2","hlyyurl03", "hlyyhd03","hlyyurl4", "hlyyhd4","hlyyurl5", "hlyyhd5","hlyyurl6", "hlyyhd6","hlyyurl7", "hlyyhd7","hlyyurl8", "hlyyhd8","hlyyurl9", "hlyyhd9","hlyyurl10", "hlyyhd10","hlyyurl11", "hlyyhd11", "hlyyurl12", "hlyyhd12","hlyyurl13", "hlyyhd13","hlyyurl14", "hlyyhd14","hlyyurl15", "hlyyhd15","hlyyurl16", "hlyyhd16","hlyyurl17", "hlyyhd17","hlyyurl18", "hlyyhd18","hlyyurl19", "hlyyhd19","hlyyurl20", "hlyyhd20"],
             "author": "@feizao",
             "settings": [{
             "id": "hlyystatus",
