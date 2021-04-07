@@ -1,6 +1,6 @@
 {
             "id": "age174.app.sub",
-            "name": "肥皂",
+            "name": "肥皂 应用订阅",
             "author": "@feizao",
             "icon": "https://s3.ax1x.com/2021/02/17/ygLAIA.jpg",
             "repo": "https://github.com/age174/-",
@@ -22,6 +22,13 @@
             "val": "1",
             "type": "number",
             "desc": "需要几个账号，数字为几"
+    },
+    {
+            "id": "hltxje",
+            "name": "提现金额",
+            "val": "1",
+            "type": "number",
+            "desc": "填入1为提现1元,2为2元,3为5元,4为50元,5为100元,默认提现一元"
     }],
             "repo": "https://github.com/age174/-/blob/main/hlyy.js",
             "icons": ["https://ae01.alicdn.com/kf/U49d941738c0c41569f7db55825943375f.jpg", "https://ae01.alicdn.com/kf/U49d941738c0c41569f7db55825943375f.jpg"],
