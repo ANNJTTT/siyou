@@ -571,7 +571,7 @@ let url = {
     const result = JSON.parse(data)
 
         if(result.errCode == 00){
-console.log(`           【葫芦音乐${$.index}】  余额:${result.data.pagelist[0]}`)
+/* console.log(`           【葫芦音乐${$.index}】  余额:${result.data.pagelist[0]}`) */
 
 
         
